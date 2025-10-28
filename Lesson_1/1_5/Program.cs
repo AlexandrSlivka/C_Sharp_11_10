@@ -5,15 +5,13 @@ int number2 = int.Parse(Console.ReadLine()!);
 Console.WriteLine("введите число3");
 int number3 = int.Parse(Console.ReadLine()!);
 
-if (number > number2 && number > number3)
+if (number < number2)
 {
-  System.Console.WriteLine(number);
+  number = number2;
 }
-else if (number2 > number && number2 > number3)
+if (number < number3)
 {
-  System.Console.WriteLine(number2);
+  number = number3;
 } 
-else if (number3 > number && number3 > number2)
-{
-  System.Console.WriteLine(number3);
-} 
+Console.WriteLine(number);
+ 
