@@ -7,11 +7,11 @@ System.Console.WriteLine("Введите день недели");
 value = int.Parse(Console.ReadLine()!);
 void dayWeek(int number)
 {
-  if (value > 0 && value < 6)
+  if (number > 0 && number < 6)
   {
     System.Console.WriteLine("Это будний день");
   }
-  else if (value > 5 && value < 8)
+  else if (number > 5 && number < 8)
   {
     System.Console.WriteLine("Выходной день");
   }

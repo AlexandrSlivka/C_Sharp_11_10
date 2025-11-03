@@ -1,31 +1,40 @@
 ﻿// Напишите программу, которая выводит третью цифру 
 //заданного числа или сообщает, что третьей цифры нет.
 
-using System.Net;
 
-int number;
+
+
 System.Console.WriteLine("Введите любое число: ");
-number = int.Parse(Console.ReadLine()!);
+int number = int.Parse(Console.ReadLine()!);
 
-int outputThirdDigit(int digit)
+void outputThirdDigit(int digit)
 {
-  if (number < 100)
+  if (digit < 100)
   {
-    System.Console.WriteLine("Вчисле нет 3-ей цифры");
+    System.Console.WriteLine("В числе нет 3-ей цифры");
+    return;
   }
-  else if (number > 99 && number < 1000)
+  else if (digit > 99 && digit < 1000)
   {
-    number %= 10;
-    System.Console.WriteLine(number);
+    digit %= 10;
+    System.Console.WriteLine(digit);
+    return;
   }
-  else if (number > 999)
+  else if (digit > 999)
   {
-    System.Console.WriteLine("Число больше трехзначного");
+    while (digit > 1000)
+    {
+      digit /= 10;
+    }
+    digit %= 10;
+    System.Console.WriteLine(digit);
   }
 
-return number;
-  
-  
+  //return digit;
+
+
 }
 outputThirdDigit(number);
+
+
 

@@ -6,12 +6,13 @@ th_number = new Random().Next(100, 1000);
 
 int randomThreeDigitNumber(int number)
 {
-  System.Console.WriteLine(th_number);
-  int thirdNumber = th_number % 10;
-  int firstNumber = (th_number / 100) * 10;
-  th_number = thirdNumber + firstNumber;
-  return th_number;
-  
+  System.Console.WriteLine(number);
+  int thirdNumber = number % 10;
+  int firstNumber = (number / 100) * 10;
+  number = thirdNumber + firstNumber;
+  return number;
+
 }
-randomThreeDigitNumber(th_number);
-System.Console.WriteLine(th_number);
+int result = randomThreeDigitNumber(th_number);
+
+System.Console.WriteLine(result);
