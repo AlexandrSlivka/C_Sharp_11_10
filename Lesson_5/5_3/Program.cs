@@ -1,6 +1,9 @@
-﻿// Зайдайте массив из 12 элементов, заполненый случайными
-//числами из промежутка [-9, 9]
-// Найдите сумму отрицательных и положительных элем. массива
+﻿// Зайдайте массив из 123 случайных чисел
+// Найдите кол-во эл. которые лежат в отрезке от 10 до 99
+// включительно
+
+
+using System.Data;
 
 int[] SettingArray(int firstNumber, int secondNumber, int size)
 {
@@ -23,33 +26,32 @@ void ArrayOutput(int[] arr)
   System.Console.WriteLine();
 }
 
-void SumPosNeg(int[] arr)
+int NumberElementsFromSegment(int[] arr)
 {
-  int pos, neg;
-  pos = neg = 0;
-
+  int numberElements = 0;
   for (int i = 0; i < arr.Length; i++)
   {
-    if (arr[i] >= 0)
-      pos += arr[i];
-    else
-      neg += arr[i];
+    if (arr[i] >= 10 && arr[i] <= 99)
+    {
+      numberElements += 1;
+    }    
   }
-  System.Console.WriteLine($"Pos: {pos}, Neg: {neg}");
+  return numberElements;  
 }
 
-
-System.Console.Write("Ведите количество элементов в массиве: ");
+System.Console.Write("Введите количество элементов в массиве: ");
 int numberElementsArray = int.Parse(Console.ReadLine()!);
 
-System.Console.Write("Ведите начало диапазона массива: ");
+System.Console.Write("Введите начало диапазона массива: ");
 int beginningRange = int.Parse(Console.ReadLine()!);
 
-System.Console.Write("Ведите конец диапазона массива: ");
+System.Console.Write("Введите конец диапазона массива: ");
 int endRange = int.Parse(Console.ReadLine()!);
-
 int[] mass = SettingArray(beginningRange, endRange, numberElementsArray);
 
-ArrayOutput(mass);
 
-SumPosNeg(mass);
+
+ArrayOutput(mass);
+System.Console.WriteLine(NumberElementsFromSegment(mass));
+
+

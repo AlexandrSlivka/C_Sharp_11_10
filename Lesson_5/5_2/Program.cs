@@ -1,6 +1,7 @@
-﻿// Зайдайте массив из 12 элементов, заполненый случайными
-//числами из промежутка [-9, 9]
-// Найдите сумму отрицательных и положительных элем. массива
+﻿// Присутствуе ли заданное число в массиве
+
+
+using System.Runtime.InteropServices;
 
 int[] SettingArray(int firstNumber, int secondNumber, int size)
 {
@@ -23,21 +24,15 @@ void ArrayOutput(int[] arr)
   System.Console.WriteLine();
 }
 
-void SumPosNeg(int[] arr)
+bool CheckingNumber(int[] arr, int number)
 {
-  int pos, neg;
-  pos = neg = 0;
-
   for (int i = 0; i < arr.Length; i++)
   {
-    if (arr[i] >= 0)
-      pos += arr[i];
-    else
-      neg += arr[i];
+    if (arr[i] == number)
+      return true;
   }
-  System.Console.WriteLine($"Pos: {pos}, Neg: {neg}");
+  return false;
 }
-
 
 System.Console.Write("Ведите количество элементов в массиве: ");
 int numberElementsArray = int.Parse(Console.ReadLine()!);
@@ -47,9 +42,11 @@ int beginningRange = int.Parse(Console.ReadLine()!);
 
 System.Console.Write("Ведите конец диапазона массива: ");
 int endRange = int.Parse(Console.ReadLine()!);
-
 int[] mass = SettingArray(beginningRange, endRange, numberElementsArray);
 
-ArrayOutput(mass);
+System.Console.WriteLine("Введите число: ");
+int num = int.Parse(Console.ReadLine()!);
 
-SumPosNeg(mass);
+ArrayOutput(mass);
+System.Console.WriteLine(CheckingNumber(mass, num)); 
+
